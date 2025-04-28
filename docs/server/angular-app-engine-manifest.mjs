@@ -1,6 +1,6 @@
 
 export default {
-  basePath: '/',
+  basePath: '/parking-app',
   supportedLocales: {
   "en-US": ""
 },

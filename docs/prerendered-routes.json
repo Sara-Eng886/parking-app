@@ -1,6 +1,6 @@
 {
   "routes": {
-    "/": {},
-    "/park": {}
+    "/parking-app": {},
+    "/parking-app/park": {}
   }
 }
