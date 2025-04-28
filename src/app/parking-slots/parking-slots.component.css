@@ -1,0 +1,243 @@
+/* Base styling for the container */
+.slots-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);  /* 3 columns for a nice grid */
+  gap: 20px;
+  padding: 30px;
+  justify-items: center;
+  background-color: #e0e0e0;  /* Light gray to resemble a garage floor */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* Styling for individual slot buttons */
+.slot button {
+  background-color: transparent;
+  border: 2px solid #aaa;
+  border-radius: 15px;  /* Rounded corners for modern look */
+  padding: 40px;  /* Increased padding for better spacing */
+  font-size: 18px;  /* Increased font size for readability */
+  font-weight: bold;
+  color: #000000;
+  cursor: pointer;
+  width: 100%;
+  height: 220px;  /* Increased height to ensure enough space for plate number */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+  position: relative;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.15); /* Adds shadow to make it look elevated */
+  background: #fff;
+  border: 2px dashed #666;  /* Dashed border to represent parking lines */
+  overflow: hidden;  /* Ensures content doesn't overflow outside the button */
+  z-index: 1;  /* Keeps the button on top */
+}
+
+/* Slot content (plate number, car info) will now be flexibly centered */
+.slot .car-info {
+  font-size: 16px;  /* Increased font size for better visibility */
+  font-weight: bold;
+  margin-top: 8px;
+  font-style: italic;
+  white-space: nowrap;  /* Prevents wrapping of plate number */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* Truncate long plate numbers */
+  display: block;  /* Ensures it's displayed as a block element */
+  z-index: 2;  /* Makes sure the plate number stays above the button */
+  position: absolute;  /* Position the plate number absolutely */
+  bottom: 10px;  /* Position it at the bottom of the slot */
+  left: 50%;
+  transform: translateX(-50%);  /* Center it horizontally */
+}
+
+/* Green Available Slot */
+.green {
+  background-color: #4CAF50;  /* Solid green for available */
+  color: white; /* Ensures the text is visible on green background */
+}
+
+.green:hover {
+  background-color: #45a049;  /* Darker green on hover */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Red Occupied Slot */
+.red {
+  background-color: #f44336;  /* Solid red for occupied */
+  color: white; /* Ensures the text is visible on red background */
+}
+
+.red .car-info {
+  font-size: 18px; /* Larger font size for plate number on occupied slots */
+  font-weight: bold; /* Make the text bold for better visibility */
+  z-index: 2; /* Ensure car-info is above the button */
+}
+
+.red:hover {
+  background-color: #e53935;  /* Darker red on hover */
+  transform: translateY(-5px);
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Disabled button when slot is occupied */
+.disabled {
+  cursor: not-allowed;
+  background-color: #f44336;  /* Red background */
+  opacity: 0.6;  /* Make the button look disabled */
+}
+
+/* Slot label (main text for available/occupied) */
+.slot-label {
+  font-size: 20px;
+  margin-bottom: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-family: 'Arial', sans-serif;  /* Clean font for modern look */
+}
+
+/* Slot id styling */
+.slot-id {
+  font-size: 16px;
+  font-style: italic;
+  margin-top: 10px;
+  font-weight: 500;
+}
+
+/* Car info styling */
+.car-info {
+  font-size: 14px;
+  margin-top: 8px;
+  font-style: italic;
+  font-weight: 300;
+  white-space: nowrap;  /* Prevents wrapping of plate number */
+  overflow: hidden;
+  text-overflow: ellipsis;  /* Truncate long plate numbers */
+  z-index: 2;  /* Ensure the plate number appears above the button */
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);  /* Center plate number horizontally */
+}
+
+/* Form styling for name and phone number */
+.form-container {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.form-container input {
+  width: 80%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.form-container .button-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.form-container button {
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: white;
+  background-color: #4CAF50; /* Green background for okay button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.form-container button:hover {
+  background-color: #45a049;
+}
+
+.form-container button:nth-child(2) {
+  background-color: #f44336; /* Red background for cancel button */
+}
+
+.form-container button:nth-child(2):hover {
+  background-color: #e53935;
+}
+
+/* Message container styling */
+.message-container {
+  background-color: #f0f8ff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.message-container.success {
+  background-color: #4CAF50; /* Green background for success */
+  color: white;
+}
+
+.message-container.error {
+  background-color: #f44336; /* Red background for errors or cancellations */
+  color: white;
+}
+
+/* New styling for the Delete Slot button */
+.delete-slot-btn {
+  margin-top: 10px;
+  background-color: #ff5722;
+  color: white;
+  padding: 4px 8px;  /* Reduced padding for a smaller button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 12px;  /* Smaller font size */
+  z-index: 5;  /* Ensure the delete button is above the plate number */
+  position: absolute;  /* Absolute positioning to keep it separate */
+  bottom: 10px;  /* Position it at the bottom of the slot */
+  right: 10px;  /* Place it on the right side */
+}
+
+/* Adjust hover effect for smaller button */
+.delete-slot-btn:hover {
+  background-color: #e64a19;
+}
+
+.message-box {
+  background-color: #d9edf7;
+  color: #31708f;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 8px;
+  text-align: center;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .slots-container {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns for medium screens */
+  }
+}
+
+@media (max-width: 768px) {
+  .slots-container {
+    grid-template-columns: 1fr;  /* Single column for small screens */
+  }
+
+  /* Adjusting slot button height for smaller screens */
+  .slot button {
+    height: 250px;  /* Increased height for smaller screens */
+  }
+}

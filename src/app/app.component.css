@@ -1,0 +1,67 @@
+/* src/app/app.component.css */
+
+/* Background for the main container */
+/* src/app/app.component.css */
+
+/* Background for the main container */
+.main-container {
+  background-image: url('/cars_tower_parking-t2.jpg'); /* Corrected path */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  padding: 50px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white; /* Set text color to white for better visibility */
+}
+
+/* Styling for the buttons */
+button {
+  padding: 15px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  width: 200px;
+  margin: 10px;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+/* Park Car button styling */
+.park-btn {
+  background-color: #4CAF50; /* Green background */
+  color: white;
+}
+
+.park-btn:hover {
+  background-color: #45a049; /* Darker green on hover */
+  transform: scale(1.05); /* Slightly increase the size */
+}
+
+/* Remove Car button styling */
+.remove-btn {
+  background-color: #f44336; /* Red background */
+  color: white;
+}
+
+.remove-btn:hover {
+  background-color: #e53935; /* Darker red on hover */
+  transform: scale(1.05); /* Slightly increase the size */
+}
+
+/* Add responsiveness */
+@media (max-width: 600px) {
+  .main-container {
+    padding: 30px 10px;
+  }
+
+  button {
+    width: 150px; /* Adjust button size for small screens */
+  }
+}
+

@@ -1,0 +1,65 @@
+<!-- Slot Selection Form -->
+<!-- Correct usage of *ngIf and ngClass -->
+<div class="slots-container">
+  <div class="slot" *ngFor="let slot of slots">
+    <button 
+      [ngClass]="{
+        'green': !slot.isOccupied, 
+        'red': slot.isOccupied
+      }"
+      (click)="handleSlotClick(slot)">
+      <span class="slot-label">{{ slot.isOccupied ? 'Occupied' : 'Available' }}</span>
+      <span class="slot-id">Slot {{ slot.id }}</span>
+      <span *ngIf="slot.isOccupied" class="car-info">Plate: {{ slot.plateNumber }}</span>
+        <!-- ✅ This button must be inside the div, AFTER the main slot button -->
+  <button (click)="deleteSlot(slot.id)" class="delete-slot-btn">🗑️ Delete</button>
+    </button>
+  </div>
+</div>
+<div class="slots-container">
+  <!-- Your slots here -->
+</div>
+
+<div *ngIf="message" class="message-box">
+  {{ message }}
+</div>
+
+<div *ngIf="isSlotSelected" class="form-container">
+  <!-- Your form here -->
+</div>
+<!-- Form to Input Name and Phone Number -->
+<div *ngIf="isSlotSelected">
+  <div class="form-container">
+    <label for="plateNumber">Plate Number:</label>
+    <input type="text" id="plateNumber" [(ngModel)]="userInfo.plateNumber" placeholder="Enter plate number">
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" id="phone" [(ngModel)]="userInfo.phoneNumber" placeholder="Enter phone number">
+
+    <div class="button-container">
+      <button (click)="confirmSelection()">Okay</button>
+      <button (click)="cancelSelection()">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Display Success or Cancel Message -->
+  <div *ngIf="message" class="message-container">
+    <p>{{ message }}</p>
+  </div>
+</div>
+
+  <!-- Display Success or Cancel Message -->
+  <div *ngIf="message" class="message-container">
+    <p>{{ message }}</p>
+  </div>
+
+<!-- Confirmation Modal for Removing Car -->
+<div *ngIf="isConfirmingRemoval" class="confirm-removal">
+  <p>Do you want to remove the car from Slot {{ selectedSlot?.id }}?</p>
+  <div>
+    <button (click)="removeCar()">Yes</button> <!-- Ensure this button is properly closed -->
+    <button (click)="cancelRemoval()">No</button> <!-- Ensure this button is properly closed -->
+  </div>
+</div>
+
+<!-- remove parking  -->
